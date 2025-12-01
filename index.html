@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WebCraft: 網頁版麥塊</title>
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="WebCraft">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* 確保沒有瀏覽器滾動條 */
+            width: 100%;
+            height: 100%;
+            background-color: #000; /* 預設黑色背景，防止加載時閃爍 */
+        }
+        #game-container {
+            width: 100%;
+            height: 100%;
+        }
+        /* 確保 Three.js 畫布填滿容器 */
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container"></div>
+    
+    <script type="module" src="/src/main.ts"></script>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Service Worker 註冊，路徑指向 public/service-worker.js
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('PWA Service Worker 註冊成功:', reg.scope))
+                    .catch(err => console.error('PWA Service Worker 註冊失敗:', err));
+            });
+        }
+    </script>
+</body>
+</html>
