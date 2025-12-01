@@ -1,0 +1,21 @@
+{
+    "name": "WebCraft: 網頁版麥塊",
+    "short_name": "WebCraft",
+    "description": "高性能的網頁版創造模式建築遊戲。",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#80aaff", 
+    "theme_color": "#4CAF50",
+    "icons": [
+        {
+            "src": "icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
